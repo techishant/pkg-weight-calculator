@@ -1,0 +1,22 @@
+@media screen and (max-width: 400px) {
+    .wrapper {
+      /* background-color: lightgreen; */
+    }
+
+    .modal .inputBox input{
+        width: 125px;
+    }
+
+    .modal .inputBox select{
+        width: 125px;
+    }
+    .modal .inputBox label{
+        font-size: 14px;
+    }
+    .modal .outputBox span{
+        font-size: 14px;
+    }
+    .modal h1{
+        font-size: 25px;
+    }
+  }

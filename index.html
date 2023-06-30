@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pkg Weight Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="modal">
+            <h1>Weight Calculator </h1>
+            <div class="inputBox">
+                <label for="invValue">Invoice Value:</label>
+                <input type="number" name="" value = "10" id="invValue">
+            </div>
+            <div class="inputBox">
+                <label for="length">Length</label>
+                <input type="number" name="" value = "10" id="length">
+            </div>
+            
+            <div class="inputBox">
+                <label for="width">Width</label>
+                <input type="number" name="" value = "10" id="width">
+            </div>
+
+            <div class="inputBox">
+                <label for="height">Height</label>
+                <input type="number" name="" value = "10" id="height">
+            </div>
+
+            <!-- <div class="outputBox">
+                <span>Dimension Weight: <span id="DimensionWeight"></span><b> kgs</b></span>
+            </div> -->
+            
+            <div class="inputBox">
+                <label for="boxWeight">Box Weight</label>
+                <input type="number" name="" value = "10" id="boxWeight">
+            </div>
+
+            <div class="inputBox">
+                <label for="pkg">No. of pkg</label>
+                <input type="number" name="" value = 4 id="pkgs">
+            </div>
+            <div class="inputBox">
+                <label for="selectState">State</label>
+                <select name="" value = "0" id="selectState">
+                </select>
+            </div>
+            <hr>
+
+            <div class="outputBox">
+                <span>Actual Weight: <span id="actualWeight"></span><b> kgs</b></span>
+                <span>Chargable Weight: <span id="chargableWeight"></span><b> kgs</b></span>
+                <hr>
+                <span>Grand Total: <b>₹</b><span id="total"></span></span>
+                <span>DHP: <b>₹</b><span id="dhp"></span></span>
+                <span>ROV: <b>₹</b><span id="rov"></span></span>
+                <span>Docket Charge: <b>₹120</b><span id="rov"></span></span>
+                <hr>
+                <span>Payable Amount: <b>₹</b><span id="payAmt"></span></span>
+                
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
