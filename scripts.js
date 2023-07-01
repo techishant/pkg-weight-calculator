@@ -11,6 +11,7 @@ const invoiceValue = document.getElementById("invValue");
 const rovValue = document.getElementById("rov");
 const payAmtValue = document.getElementById("payAmt");
 const boxWeightValue = document.getElementById("boxWeight");
+const podValue = document.getElementById("pod");
 
 
 
@@ -28,7 +29,12 @@ var States = [
     {state: "Telengana", rate: 14.4},
     {state: "Gujrat", rate: 10.5},
     {state: "Haryana", rate: 20},
-    {state: "West Bengal", rate: 14}
+    {state: "West Bengal", rate: 14},
+    {state: "Maharashtra", rate: 12},
+    {state: "Karnataka", rate: 14.4},
+    {state: "Uttar Pradesh", rate: 7.5},
+    {state: "Punjab", rate: 7.51},
+    
 ];
 
 lengthValue.addEventListener('input', calculateValues);
@@ -85,13 +91,26 @@ function calculateValues(){
 
     payAmt = grandTotal + DHPAmount + ROV + pod;
 
-    actualWeightValue.innerText = `${actualValue}`;
-    chargableWeightValue.innerText = `${chargableValue}`;
-    totalValue.innerText = `${grandTotal}`;
-    dhpValue.innerText = `${DHPAmount}`;
-    rovValue.innerText = `${ROV}`;
-    payAmtValue.innerText = `${payAmt}`;
-    
+    actualWeightValue.innerText = `${actualValue}kgs`;
+    chargableWeightValue.innerText = `${chargableValue}kgs`;
+    totalValue.innerText = `₹${grandTotal}`;
+    dhpValue.innerText = `₹${DHPAmount}`;
+    rovValue.innerText = `₹${ROV}`;
+    podValue.innerText = `₹${pod}`;
+    payAmtValue.innerText = `₹${payAmt}`;
 
     // document.getElementById("DimensionWeight").innerText = `${dimWeight}`;
 }
+
+
+
+// function takeshot() {
+//     let div =
+//         document.getElementById('photo');
+//     html2canvas(div).then(
+//         function (canvas) {
+//             document
+//             .getElementById('imgOutput')
+//             .appendChild(canvas);
+//         })
+// }

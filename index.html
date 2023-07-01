@@ -9,11 +9,11 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="modal">
+        <div class="modal" id ="photo">
             <h1>Weight Calculator </h1>
             <div class="inputBox">
                 <label for="invValue">Invoice Value:</label>
-                <input type="number" name="" value = "10" id="invValue">
+                <input type="number" name="" value = "1000" id="invValue">
             </div>
             <div class="inputBox">
                 <label for="length">Length</label>
@@ -48,22 +48,28 @@
                 <select name="" value = "0" id="selectState">
                 </select>
             </div>
-            <hr>
+            <hr style="
+            background: purple;
+            height: 1px;
+            border: none;
+            ">
 
             <div class="outputBox">
-                <span>Actual Weight: <span id="actualWeight"></span><b> kgs</b></span>
-                <span>Chargable Weight: <span id="chargableWeight"></span><b> kgs</b></span>
+                <span>Actual Weight: <span id="actualWeight"></span></span>
+                <span>Chargable Weight: <span id="chargableWeight"></span></span>
                 <hr>
-                <span>Grand Total: <b>₹</b><span id="total"></span></span>
-                <span>DHP: <b>₹</b><span id="dhp"></span></span>
-                <span>ROV: <b>₹</b><span id="rov"></span></span>
-                <span>Docket Charge: <b>₹120</b><span id="rov"></span></span>
+                <span>Grand Total: <span id="total"></span></span>
+                <span>DHP: <span id="dhp"></span></span>
+                <span>ROV: <span id="rov"></span></span>
+                <span>Docket Charge: <span id="pod"></span></span>
                 <hr>
-                <span>Payable Amount: <b>₹</b><span id="payAmt"></span></span>
+                <span>Payable Amount: <span id="payAmt"></span></span>
                 
             </div>
         </div>
     </div>
+    <!-- <div id="imgOutput"></div> -->
     <script src="scripts.js"></script>
+    <!-- <script src= "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> -->
 </body>
 </html>
