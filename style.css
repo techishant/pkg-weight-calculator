@@ -6,13 +6,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --acc-color: purple;
+}
 
 .wrapper{
     height: 100vh;
     width: 100%;
-    background: purple;
+    background: var(--acc-color);
     display: grid;
     place-items: center;
+    position: relative;
+}
+.themeSelector{
+    position: absolute;
+    min-height: 40px;
+    min-width: 200px;
+    width: auto;
+    display: flex;
+    background: white;
+    top:0;
+    left: 0;
+    justify-content: space-evenly;
+    padding: 0px 10px 0px 10px;
+    column-gap: 12px;
+    align-items: center;
+    border-bottom-right-radius: 12px;
+}
+.themeSelector span{
+    height: 28px;
+    width: 28px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.themeSelector span:hover{
+    transform: scale(1.1);
 }
 
 .modal{
@@ -22,6 +51,7 @@
     border-radius: 15px;
     padding: 20px;
 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .modal h1{
@@ -53,7 +83,7 @@
 }
 
 .modal .inputBox input:focus{
-    border-color: purple;
+    border-color: var(--acc-color);
 }
 
 .modal .inputBox select{
@@ -64,8 +94,17 @@
     outline: none;
 }
 
+.modal .inputBox select option:checked{
+    background: var(--acc-color);
+    color: white;
+    font-weight: 3px;
+}
+.modal .inputBox select option:focus{
+    background-color: red;
+}
+
 .modal .inputBox select:focus{
-    border-color: purple;
+    border-color: var(--acc-color);
 }
 
 /* OUTPUT BOX  */
@@ -81,4 +120,10 @@
     display: inline-block;
     font-weight: bold;
     margin-right: 0%;
+}
+
+.hor-bar{
+    background: var(--acc-color);
+    height: 1px;
+    border: none;
 }

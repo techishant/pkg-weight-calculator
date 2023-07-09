@@ -9,6 +9,8 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="themeSelector" id="themeSelector">
+        </div>
         <div class="modal" id ="photo">
             <h1>Weight Calculator </h1>
             <div class="inputBox">
@@ -45,14 +47,10 @@
             </div>
             <div class="inputBox">
                 <label for="selectState">State</label>
-                <select name="" value = "0" id="selectState">
+                <select name="" value = "0" id="selectState" >
                 </select>
             </div>
-            <hr style="
-            background: purple;
-            height: 1px;
-            border: none;
-            ">
+            <hr class="hor-bar">
 
             <div class="outputBox">
                 <span>Actual Weight: <span id="actualWeight"></span></span>
@@ -70,6 +68,7 @@
     </div>
     <!-- <div id="imgOutput"></div> -->
     <script src="scripts.js"></script>
+    <script src="designScript.js"></script>
     <!-- <script src= "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> -->
 </body>
 </html>

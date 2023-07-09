@@ -19,4 +19,13 @@
     .modal h1{
         font-size: 25px;
     }
+
+    .themeSelector{
+        min-width: 120px;
+        min-height: 35px;
+    }
+    .themeSelector span{
+        height: 24px;
+        width: 24px;
+    }
   }
