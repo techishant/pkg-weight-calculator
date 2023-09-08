@@ -6,6 +6,7 @@
     <title>Pkg Weight Calculator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -62,13 +63,17 @@
                 <span>Docket Charge: <span id="pod"></span></span>
                 <hr>
                 <span>Payable Amount: <span id="payAmt"></span></span>
-                
+                <button id="genPDFbtn">Export PDF</button>
             </div>
         </div>
     </div>
     <!-- <div id="imgOutput"></div> -->
     <script src="scripts.js"></script>
     <script src="designScript.js"></script>
+    <script src="export.js"></script>
+    <!-- <script>
+        const doc = new jsPDF();
+    </script> -->
     <!-- <script src= "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> -->
 </body>
 </html>

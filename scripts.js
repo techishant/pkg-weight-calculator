@@ -96,7 +96,7 @@ function calculateValues(){
     totalValue.innerText = `₹${grandTotal}`;
     dhpValue.innerText = `₹${DHPAmount}`;
     rovValue.innerText = `₹${ROV}`;
-    podValue.innerText = `₹${pod}`;
+    podValue.innerText = `₹${pod}`; //docket charge
     payAmtValue.innerText = `₹${payAmt}`;
 
     // document.getElementById("DimensionWeight").innerText = `${dimWeight}`;
