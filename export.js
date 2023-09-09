@@ -5,10 +5,10 @@ function exportAsPDF(){
         orientation: "p",
         lineHeight: 1.3
     });
-    doc.addFont("Roboto-Regular.ttf", "Roboto", "normal");
-    doc.addFont("Roboto-Bold.ttf", "Roboto", "bold");
-    doc.addFont("Candara.ttf", "Candara", "normal");
-    doc.addFont("Candara_Bold.ttf", "Candara", "bold");
+    doc.addFont("fonts/Roboto-Regular.ttf", "Roboto", "normal");
+    doc.addFont("fonts/Roboto-Bold.ttf", "Roboto", "bold");
+    doc.addFont("fonts/Candara.ttf", "Candara", "normal");
+    doc.addFont("fonts/Candara_Bold.ttf", "Candara", "bold");
     
     
     doc.setFont("Roboto");
@@ -56,9 +56,15 @@ function exportAsPDF(){
     doc.setFontSize(18);
     doc.text(out, 260, 80);
 
-    
+    out = `Rupees ${getWord(payAmt)} only.`
+    doc.text(out, 20, 450)
 
-
+    let currentDateAndTime = new Date();
+    out = `${currentDateAndTime.getDate()}-${currentDateAndTime.getMonth()}-${currentDateAndTime.getFullYear()} | ${currentDateAndTime.getHours()}:${currentDateAndTime.getMinutes()}:${currentDateAndTime.getSeconds()}`;
+    doc.setFont("Roboto", "normal");
+    doc.setFontSize(14);
+    doc.line(10, 490, 585, 490);
+    doc.text(out, 20, 507);
     doc.save("export.pdf");
 }
 
