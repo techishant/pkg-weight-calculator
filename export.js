@@ -1,72 +1,72 @@
 
-function exportAsPDF(){
+function exportAsPDF() {
     const doc = new window.jspdf.jsPDF({
         unit: "pt",
         orientation: "p",
         lineHeight: 1.3
     });
-    doc.addFont("fonts/Roboto-Regular.ttf", "Roboto", "normal");
-    doc.addFont("fonts/Roboto-Bold.ttf", "Roboto", "bold");
-    doc.addFont("fonts/Candara.ttf", "Candara", "normal");
-    doc.addFont("fonts/Candara_Bold.ttf", "Candara", "bold");
-    
-    
-    doc.setFont("Roboto");
-    doc.setFont(undefined, "bold");
+
     doc.setFontSize(28);
+    doc.setFont(undefined, 'bold');
     doc.text("Freight Invoice", 20, 50);
     doc.line(10, 58, 585, 58);
-    
-    var out = `
-    Invoice Value: 
-    Dimension: 
-    No. Of Pkg: 
-    Actual Weight: 
-    Chargable Weight: 
-    State:
-    
-    Grand Total: 
-    DHP: 
-    ROV: 
-    Docket Charge: 
+    doc.setFont(undefined, 'normal');
 
-    Payable Amount: 
-    `
-    
-    doc.setFont("Candara", "bold");
-    doc.setFontSize(18);
-    doc.text(out, 20, 80);
+    doc.setFontSize(14);
+    doc.autoTable({
+        startY: 100,
+        body: getRows(),
+        styles: {
+            lineColor: [0, 0, 0],
+            lineWidth: 0.2,
+        },
+        bodyStyles: {
+            fillColor: [255, 255, 255],
+            textColor: 0,
+        },
+        alternateRowStyles: {
+            fillColor: [255, 255, 255],
+        },
+        columnStyles: {
+            0: {
+                fontStyle: 'bold',
+            }
+        },
 
-    out = `
-    Rs. ${civ}
-    ${l} * ${b} * ${h} (inches)
-    ${n}
-    ${actualValue}kgs
-    ${chargableValue}kgs
-    ${States[st].state}
+        didDrawPage: function (data) {
+        }
+    });
 
-    Rs. ${grandTotal}
-    Rs. ${DHPAmount}
-    Rs. ${ROV}
-    Rs. ${pod}
 
-    Rs. ${payAmt}
-    `
-    doc.setFont("Candara", "normal");
-    doc.setFontSize(18);
-    doc.text(out, 260, 80);
-
-    out = `Rupees ${getWord(payAmt)} only.`
-    doc.text(out, 20, 450)
+    doc.setFontSize(12);
+    doc.text(`Rupees ${getWord(payAmt)} only.`, 20, 450)
 
     let currentDateAndTime = new Date();
-    out = `${currentDateAndTime.getDate()}-${currentDateAndTime.getMonth()}-${currentDateAndTime.getFullYear()} | ${currentDateAndTime.getHours()}:${currentDateAndTime.getMinutes()}:${currentDateAndTime.getSeconds()}`;
-    doc.setFont("Roboto", "normal");
-    doc.setFontSize(14);
-    doc.line(10, 490, 585, 490);
-    doc.text(out, 20, 507);
-    doc.save("export.pdf");
+    let out = `${currentDateAndTime.getDate()}-${currentDateAndTime.getMonth()}-${currentDateAndTime.getFullYear()} | ${currentDateAndTime.getHours()}:${currentDateAndTime.getMinutes()}:${currentDateAndTime.getSeconds()}`;
+
+    doc.line(10, 470, 585, 470);
+    doc.text(out, 20, 480);
+
+    doc.save();
 }
+
+function getRows() {
+    let rows = []
+
+    rows.push(["Invoice Value", civ]);
+    rows.push(["Dimension", `${l} * ${b} * ${h} (inches)`]);
+    rows.push(["Number of Packages", n]);
+    rows.push(["Actual Weight", `${actualValue} kgs.`]);
+    rows.push(["Chargable Weight", `${chargableValue} kgs.`]);
+    rows.push(["State", States[st].state]);
+    rows.push(["Grand Total", grandTotal]);
+    rows.push(["DHP", DHPAmount]);
+    rows.push(["ROV", ROV]);
+    rows.push(["Docket Charge", pod]);
+    rows.push(["Payable Amount", payAmt]);
+    return rows;
+}
+
 
 const exportBtn = document.getElementById("genPDFbtn");
 exportBtn.addEventListener('click', exportAsPDF);
