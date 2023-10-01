@@ -45,7 +45,7 @@ function exportAsPDF() {
     let out = `${currentDateAndTime.getDate()}-${currentDateAndTime.getMonth()}-${currentDateAndTime.getFullYear()} | ${currentDateAndTime.getHours()}:${currentDateAndTime.getMinutes()}:${currentDateAndTime.getSeconds()}`;
 
     doc.line(10, 470, 585, 470);
-    doc.text(out, 20, 480);
+    doc.text(out, 20, 481);
 
     doc.save();
 }
